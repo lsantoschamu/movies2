@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Titulaciones;
+use App\Models\Titulacion;
 use Illuminate\Http\Request;
 
 class TitulacionesController extends Controller
@@ -14,7 +14,7 @@ class TitulacionesController extends Controller
     public function index()
     {
         // Obtener todas las titulaciones ordenadas por fecha
-        $titulaciones = Titulaciones::orderBy('fecha_titulaciones', 'desc')->get();
+        $titulaciones = Titulacion::orderBy('fecha_titulaciones', 'desc')->get();
 
         // Retornar la vista con los datos
         return view('titulaciones.index', compact('titulaciones'));
@@ -102,7 +102,7 @@ class TitulacionesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Titulaciones $titulacion)
+    public function show(Titulacion $titulacion)
     {
         return view('titulaciones.show', compact('titulacion'));
     }
@@ -110,7 +110,7 @@ class TitulacionesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Titulaciones $titulacion)
+    public function edit(Titulacion $titulacion)
     {
         return view('titulaciones.edit', compact('titulacion'));
     }
@@ -119,7 +119,7 @@ class TitulacionesController extends Controller
      * Update the specified resource in storage.
      * Función UPDATE - Actualizar titulación
      */
-    public function update(Request $request, Titulaciones $titulacion)
+    public function update(Request $request, Titulacion $titulacion)
     {
         //Validación mejorada
         $validatedData = $request->validate([

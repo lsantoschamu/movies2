@@ -16,8 +16,10 @@ Route::get('/titulaciones/{titulacion}/edit', [TitulacionesController::class, 'e
 Route::put('/titulaciones/{titulacion}', [TitulacionesController::class, 'update'])->name('titulaciones.update');
 Route::delete('/titulaciones/{titulacion}', [TitulacionesController::class, 'destroy'])->name('titulaciones.destroy');
 
+//Route::resource('titulaciones',TitulacionesController::class);
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 });
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';
